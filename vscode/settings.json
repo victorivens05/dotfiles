@@ -1,0 +1,208 @@
+{
+  "editor.renderWhitespace": "all",
+  "editor.stablePeek": true,
+  "editor.minimap.enabled": false,
+  "editor.tabSize": 2,
+  "workbench.editor.revealIfOpen": true,
+  "problems.decorations.enabled": false,
+  "breadcrumbs.enabled": false,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "typescript.tsdk": "node_modules/typescript/lib/",
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": true,
+    "strings": true
+  },
+  "window.zoomLevel": 0,
+  "workbench.activityBar.visible": false,
+  "vim.easymotion": true,
+  "editor.lineNumbers": "relative",
+  "vim.camelCaseMotion.enable": true,
+  "editor.suggest.localityBonus": true,
+  "macros": {
+    "evenWidthAndOpenFilesEditor": [
+      "workbench.action.evenEditorWidths",
+      "revealInExplorer"
+    ]
+  },
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "vim.highlightedyank.enable": true,
+  "vim.visualstar": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": false,
+  "vim.handleKeys": {
+    "<C-d>": false,
+    "<C-h>": true,
+    "<C-l>": true
+  },
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "<Space>"
+      ],
+      "after": [
+        "<Leader>",
+        "<Leader>",
+        "s"
+      ]
+    },
+    {
+      "before": [
+        "L"
+      ],
+      "after": [
+        "2",
+        "0",
+        "k"
+      ]
+    },
+    {
+      "before": [
+        "H"
+      ],
+      "after": [
+        "2",
+        "0",
+        "j"
+      ]
+    },
+    {
+      "before": [
+        "*"
+      ],
+      "after": [
+        "*",
+        "z",
+        "z"
+      ]
+    },
+    {
+      "before": [
+        "#"
+      ],
+      "after": [
+        "#",
+        "z",
+        "z"
+      ]
+    }
+  ],
+  "vim.insertModeKeyBindings": [
+    {
+      "before": [
+        "j",
+        "j"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    },
+    {
+      "before": [
+        "<C-h>"
+      ],
+      "commands": [
+        "cursorLeft"
+      ]
+    },
+    {
+      "before": [
+        "<C-l>"
+      ],
+      "commands": [
+        "cursorRight"
+      ]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        ">"
+      ],
+      "commands": [
+        "editor.action.indentLines"
+      ]
+    },
+    {
+      "before": [
+        "<"
+      ],
+      "commands": [
+        "editor.action.outdentLines"
+      ]
+    },
+  ],
+  "workbench.tree.renderIndentGuides": "always",
+  "editor.fontFamily": "'Victor Mono', 'Consolas ligaturized', Consolas, 'Courier New', monospace",
+  "editor.fontWeight": "600",
+  "editor.letterSpacing": 0.2,
+  "editor.fontLigatures": true,
+  "workbench.colorTheme": "Night Owl",
+  "editor.rulers": [
+    100
+  ],
+  "workbench.colorCustomizations": {
+    "[Night Owl]": {
+      "gitDecoration.modifiedResourceForeground": "#ffcb8b",
+      "activityBar.background": "#000C1D",
+      "activityBar.border": "#102a44",
+      "sideBar.background": "#001122",
+      "sideBar.border": "#102a44",
+      "sideBar.foreground": "#8BADC1",
+      "editorLineNumber.foreground": "#ffd700",
+      "editorLineNumber.activeForeground": "#f78c6c",
+      "editor.lineHighlightBackground": "#000C1D",
+    }
+  },
+  "editor.renderLineHighlight": "all",
+  "git.autofetch": true,
+  "bracket-pair-colorizer-2.showBracketsInGutter": true,
+  "bracket-pair-colorizer-2.colors": [
+    "Gold",
+    "Orchid",
+    "LightSkyBlue"
+  ],
+  "bracket-pair-colorizer-2.showBracketsInRuler": true,
+  "highlight.regexes": {
+    "(<(\\/|))(Styles)(\\.)": { // A regex will be created from this string, don't forget to double escape it
+      "regexFlags": "g", // Flags used when building this regex
+      // "filterLanguageRegex": "tsx", // Apply only if current file's language matches this regex. Requires double escaping
+      "filterFileRegex": ".*\\.tsx", // Apply only if the current file's path matches this regex. Requires double escaping
+      "decorations": [ // Decoration options to apply to the capturing groups
+        {}, // Decoration options to apply to the first capturing group, in this case "//TODO"
+        {
+          "color": "#c792ea",
+          "fontStyle": "italic"
+        }, // Decoration options to apply to the first capturing group, in this case "//TODO"
+        {
+          "color": "#c792ea",
+          "fontStyle": "italic"
+        }, // Decoration options to apply to the second capturing group, in this case ":"
+        {} // Decoration options to apply to the second capturing group, in this case ":"
+      ]
+    }
+  },
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "window.title": "${activeEditorShort}${separator}${activeFolderMedium}${separator}${rootName}",
+  "typescript.format.semicolons": "remove",
+  "typescript.preferences.quoteStyle": "single",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "typescript.format.insertSpaceBeforeFunctionParenthesis": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+  "editor.renderControlCharacters": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+}

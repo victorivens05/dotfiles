@@ -106,4 +106,47 @@
     "command": "editor.action.insertCursorBelow",
     "when": "editorTextFocus"
   },
+  {
+    "key": "ctrl+tab",
+    "command": "workbench.action.nextEditorInGroup"
+  },
+  {
+    "key": "ctrl+shift+tab",
+    "command": "workbench.action.previousEditorInGroup"
+  },
+  {
+    "key": "ctrl+pagedown",
+    "command": "scrollPageDown",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+pageup",
+    "command": "scrollPageUp",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+k w",
+    "command": "-workbench.action.closeEditorsInGroup",
+    "when": "editorTextFocus && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible"
+  },
+  {
+    "key": "ctrl+k w",
+    "command": "workbench.action.closeOtherEditors",
+    "when": "editorTextFocus && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible"
+  },
+  {
+    "key": "ctrl+k l",
+    "command": "workbench.action.focusNextGroup",
+    "when": "editorTextFocus && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible"
+  },
+  {
+    "key": "ctrl+k h",
+    "command": "workbench.action.focusPreviousGroup",
+    "when": "editorTextFocus && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible"
+  },
+  {
+    "key": "shift+escape",
+    "command": "closeReferenceSearch",
+    "when": "referenceSearchVisible"
+  },
 ]

@@ -12,69 +12,134 @@
   //  ],
   //  "description": "Log output to console"
   // }
-  "Create React Container (hooks and context api)": {
-    "prefix": "rclass",
-    "body": [
-      "import React, { useState } from 'react'",
-      "import { $1View } from './$1View'",
-      "import { GlobalStoreValues, GlobalStoreCtx } from '../../GlobalStore'",
-      "",
-      "const use$1Store = () => {",
-      "  const { setErrorMessage } = useContext<GlobalStoreValues>(GlobalStoreCtx)",
-      "",
-      "  return {}",
-      "}",
-      "",
-      "export type $1StoreValues = ReturnType<typeof use$1Store>",
-      "export const $1StoreCtx = React.createContext(null)",
-      "export const $1 = () => {",
-      "  const Values = use$1Store()",
-      "  return (",
-      "    <$1StoreCtx.Provider value={Values}>",
-      "      <$1View />",
-      "    </$1StoreCtx.Provider>",
-      "  )",
-      "",
-      "}",
-    ]
-  },
-  "Create React View (hooks and context api)": {
-    "prefix": "rview",
-    "body": [
-      "import React, {useContext} from 'react'",
-      "import { $1StoreValues, $1StoreCtx } from './$1';",
-      "",
-      "export const $1View = () => {",
-      "",
-      "  const { } = useContext<$1StoreValues>($1StoreCtx)",
-      "",
-      "  return (",
-      "    <div>",
-      "    </div>",
-      "  )",
-      "}",
-    ]
-  },
   "Use State": {
     "prefix": "ust",
     "body": "const [$1, _se$2t$1] = useState($3)"
   },
-  "Create New Reducer": {
-    "prefix": "reduc",
+  // "Create New Reducer": {
+  //   "prefix": "reduc",
+  //   "body": [
+  //     "$1(state: IState, { payload }: PayloadAction<{ $2 }>) {",
+  //     "  $3",
+  //     "},",
+  //   ]
+  // },
+  // "New Action with useReducer": {
+  //   "prefix": "act",
+  //   "body": [
+  //     "$1:'$1';",
+  //     "case ACTIONS.$1:",
+  //     "  return {",
+  //     "    ...state,",
+  //     "  }"
+  //   ]
+  // },
+  "New Action And Reducer with useReducer": {
+    "prefix": "actred",
     "body": [
-      "$1(state: IState, { payload }: PayloadAction<{ $2 }>) {",
-      "  $3",
-      "},",
-    ]
-  },
-  "New Action with useReducer": {
-    "prefix": "act",
-    "body": [
-      "$1:'$1';",
-      "case ACTIONS.$1:",
+      "| { type: '$1', $2 }",
+      "case '$1':",
       "  return {",
       "    ...state,",
+      "    $2: action.$2,",
       "  }"
+    ]
+  },
+  "Dispatch with useReducer": {
+    "prefix": "disp",
+    "body": "dispatch({ type: '$1' })"
+  },
+  "New Store": {
+    "prefix": "newstore",
+    "body": [
+      "import React, { useEffect } from 'react'",
+      "",
+      "const initialState = {",
+      "}",
+      "",
+      "type ACTIONS =",
+      "  | { type: '' }",
+      "",
+      "type IState = typeof initialState",
+      "type IDispatch = (p: ACTIONS) => void",
+      "",
+      "function reducerFn (state: IState, action: ACTIONS): IState {",
+      "",
+      "  switch (action.type) {",
+      "    case '':",
+      "      return {",
+      "        ...initialState,",
+      "      }",
+      "    default:",
+      "      return state",
+      "  }",
+      "}",
+      "",
+      "/** Funtions */",
+      "",
+      "/** Providers */",
+      "const StateContext = React.createContext(initialState)",
+      "const DispatchContext = React.createContext<IDispatch>(undefined as any)",
+      "",
+      "function $1Provider ({ children }) {",
+      "  const [state, dispatch] = React.useReducer(reducerFn, initialState)",
+      "",
+      "  useEffect(() => {",
+      "    // console.log({ state })",
+      "  }, [state])",
+      "",
+      "  return (",
+      "    <DispatchContext.Provider value={dispatch}>",
+      "      <StateContext.Provider value={state}>",
+      "        {children}",
+      "      </StateContext.Provider>",
+      "    </DispatchContext.Provider>",
+      "  )",
+      "}",
+      "",
+      "function use$1State () {",
+      "  const context = React.useContext(StateContext)",
+      "  if (context === undefined) {",
+      "    throw new Error('use$1State must be used within a $1Provider')",
+      "  }",
+      "  return context",
+      "}",
+      "",
+      "function use$1Dispatch () {",
+      "  const context = React.useContext(DispatchContext)",
+      "  if (context === undefined) {",
+      "    throw new Error('use$1Dispatch must be used within a $1Provider')",
+      "  }",
+      "  return context",
+      "}",
+      "",
+      "const Get$1State  = ({ children = (s: typeof state) => null as any }) => {",
+      "  const state = use$1State()",
+      "  return children(state)",
+      "}",
+      "",
+      "export {",
+      "  $1Provider,",
+      "  Get$1State,",
+      "  use$1Dispatch,",
+      "  use$1State,",
+      "}",
+    ]
+  },
+  "New Styled Element": {
+    "prefix": "styl",
+    "body": [
+      "$1: styled('div')`",
+      "  $2",
+      "`,",
+    ]
+  },
+  "Css Media": {
+    "prefix": "@m",
+    "body": [
+      "@media (max-width: $1px) {",
+      "  $2",
+      "}"
     ]
   }
 }

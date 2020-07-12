@@ -1,11 +1,12 @@
 {
-  "editor.renderWhitespace": "all",
+  "editor.codeLens": false,
+	"editor.renderWhitespace": "all",
   "editor.stablePeek": true,
   "editor.minimap.enabled": false,
   "editor.tabSize": 2,
   "workbench.editor.revealIfOpen": true,
   "problems.decorations.enabled": false,
-  "breadcrumbs.enabled": false,
+  "breadcrumbs.enabled": true,
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
@@ -18,7 +19,6 @@
   "window.zoomLevel": 0,
   "workbench.activityBar.visible": false,
   "vim.easymotion": true,
-  "editor.lineNumbers": "relative",
   "vim.camelCaseMotion.enable": true,
   "editor.suggest.localityBonus": true,
   "macros": {
@@ -48,26 +48,26 @@
         "s"
       ]
     },
-    {
-      "before": [
-        "L"
-      ],
-      "after": [
-        "2",
-        "0",
-        "k"
-      ]
-    },
-    {
-      "before": [
-        "H"
-      ],
-      "after": [
-        "2",
-        "0",
-        "j"
-      ]
-    },
+    // {
+    //   "before": [
+    //     "L"
+    //   ],
+    //   "after": [
+    //     "2",
+    //     "0",
+    //     "k"
+    //   ]
+    // },
+    // {
+    //   "before": [
+    //     "H"
+    //   ],
+    //   "after": [
+    //     "2",
+    //     "0",
+    //     "j"
+    //   ]
+    // },
     {
       "before": [
         "*"
@@ -86,6 +86,31 @@
         "#",
         "z",
         "z"
+      ]
+    },
+    {
+      "before": [
+        ">"
+      ],
+      "commands": [
+        "editor.action.indentLines"
+      ]
+    },
+    {
+      "before": [
+        "<"
+      ],
+      "commands": [
+        "editor.action.outdentLines"
+      ]
+    },
+    {
+      "before": [
+        "g",
+        "D"
+      ],
+      "commands": [
+        "editor.action.goToReferences"
       ]
     }
   ],
@@ -133,13 +158,34 @@
         "editor.action.outdentLines"
       ]
     },
+    {
+      "before": [
+        "<Leader>",
+        "w"
+      ],
+      "after": [
+        "S",
+        "<Enter>",
+        "V",
+        ":",
+        "s",
+        "/",
+        ",",
+        "/",
+        ",",
+        "\\",
+        "r",
+        "/",
+        "g",
+        "<Enter>"
+      ]
+    }
   ],
   "workbench.tree.renderIndentGuides": "always",
   "editor.fontFamily": "'Victor Mono', 'Consolas ligaturized', Consolas, 'Courier New', monospace",
   "editor.fontWeight": "600",
   "editor.letterSpacing": 0.2,
   "editor.fontLigatures": true,
-  "workbench.colorTheme": "Night Owl",
   "editor.rulers": [
     100
   ],
@@ -154,6 +200,7 @@
       "editorLineNumber.foreground": "#ffd700",
       "editorLineNumber.activeForeground": "#f78c6c",
       "editor.lineHighlightBackground": "#000C1D",
+      "editorCursor.foreground": "#ccff33",
     }
   },
   "editor.renderLineHighlight": "all",
@@ -205,4 +252,26 @@
     "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+  "git.confirmSync": false,
+  "editor.lineNumbers": "relative",
+  "html.mirrorCursorOnMatchingTag": false,
+  "workbench.colorTheme": "Night Owl",
+  "html.format.wrapLineLength": 0,
+  "html.format.enable": false,
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "prettier.printWidth": 100,
+  "terminal.external.linuxExec": "sakura",
+  "terminal.integrated.rendererType": "dom",
+  "typescript.referencesCodeLens.enabled": true,
+  "typescript.referencesCodeLens.showOnAllFunctions": true,
+  "bracket-pair-colorizer-2.activeScopeCSS": [
+    "borderStyle : solid",
+    "borderWidth : 1px",
+    "borderColor : {color}",
+    "opacity: 0.5"
+  ],
+  "toggle.settingTitle": "editor.codeLens",
+  "tabnine.experimentalAutoImports": true,
 }

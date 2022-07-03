@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -16,6 +9,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
+export EDITOR=/usr/bin/vim
+export VISUAL=/usr/bin/vim
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -78,8 +73,8 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git 
-  nvm 
+  git
+  nvm
   zsh-autosuggestions
   zsh-syntax-highlighting
   colorize
@@ -89,11 +84,12 @@ plugins=(
   wakatime
   vi-mode
   z
+  history-substring-search
+  colored-man-pages
+  fzf
 )
 
 source $ZSH/oh-my-zsh.sh
-
-export EDITOR='vim'
 
 # User configuration
 
@@ -101,6 +97,7 @@ export EDITOR='vim'
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
+
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
@@ -120,14 +117,40 @@ export EDITOR='vim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-VI_MODE_SET_CURSOR=true
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-source <(kubectl completion zsh)
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
 
-alias mdev="CURRENT_BRANCH=$(git branch --show-current) && git checkout dev && git pull && git checkout $CURRENT_BRANCH && git merge dev"
+
+eval $(thefuck --alias)
+
 alias ys="yarn start"
-alias yst="yarn start:test"
 alias ysd="yarn start:debug"
+alias yst="yarn start:test"
+alias yb="yarn build"
+alias ybs="yarn build:staging"
+alias b_seplac="cd ~/Projetos/seplac/backend && ys"
+alias f_seplac="cd ~/Projetos/seplac/frontend && ys"
+alias b_cobranca="cd ~/Projetos/cobranca-hyperpay/backend && ys"
+alias f_cobranca="cd ~/Projetos/cobranca-hyperpay/frontend && ys"
+alias b_hyperpay="cd ~/Projetos/hyperpay/backend && ys"
+alias f_hyperpay="cd ~/Projetos/hyperpay/frontend && ys"
+alias b_monitoramento="cd ~/Projetos/hyperpay-monitoramento/backend && ys"
+alias f_monitoramento="cd ~/Projetos/hyperpay-monitoramento/frontend && ys"
+alias b_webservices="cd ~/Projetos/webservices/backend && ys"
+alias b_newdriver="cd ~/Projetos/newdriver/backend && ys"
+alias f_newdriver_app="cd ~/Projetos/newdriver/frontend-app && ys"
+alias f_newdriver_adm="cd ~/Projetos/newdriver/frontend-adm && ys"
+alias b_vistoriafacil="cd ~/Projetos/vistoriafacil/backend && ys"
+alias f_vistoriafacil="cd ~/Projetos/vistoriafacil/frontend && ys"
+alias f_emplacafacil="cd ~/Projetos/emplacafacil/frontend && ys"
+
+
+
+[[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)

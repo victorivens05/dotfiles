@@ -16,8 +16,9 @@ killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # Launch the bar
-MONITOR=DP-2 polybar -q main -c "$DIR"/config.ini &
+MONITOR=DP-0 polybar -q main -c "$DIR"/config.ini &
 MONITOR=HDMI-0 polybar -q secondary -c "$DIR"/config.ini &
+MONITOR=DP-2 polybar -q secondary -c "$DIR"/config.ini &
 
 # #!/usr/bin/env sh
 

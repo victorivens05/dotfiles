@@ -8,6 +8,8 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -123,7 +125,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -137,7 +138,6 @@ export NVM_DIR="$HOME/.nvm"
 # export GTK_IM_MODULE=ibus
 # export XMODIFIERS=@im=ibus
 # export QT_IM_MODULE=ibus
-
 
 # eval $(thefuck --alias)
 alias ys="yarn start"
@@ -162,5 +162,6 @@ alias b_vistoriafacil="cd ~/Projetos/vistoriafacil/backend && ys"
 alias f_vistoriafacil="cd ~/Projetos/vistoriafacil/frontend && ys"
 alias f_emplacafacil="cd ~/Projetos/emplacafacil/frontend && ys"
 alias b_auth="cd ~/Projetos/hyperpay-auth/backend && ys"
+alias b_flow="cd ~/Projetos/hyperflow/backend && ys"
 
 [[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)

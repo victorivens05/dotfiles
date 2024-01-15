@@ -63,7 +63,7 @@ bindsym $mod+q kill
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/colorful/launcher.sh
+bindsym $mod+d exec --no-startup-id ~/.config/polybar/forest/scripts/launcher.sh
 
 # change focus
 bindsym $mod+$left focus left
@@ -93,7 +93,8 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+t split toggle
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+bindsym $mod+f layout toggle tabbed split
+bindsym $mod+Shift+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+Shift+s floating toggle
@@ -225,8 +226,8 @@ bindsym $mod+Ctrl+Shift+l exec --no-startup-id i3lock --image ~/Pictures/lock.pn
 bindsym $mod+Shift+m mode "monitors"
 
 mode "monitors" {
-	bindsym 2 exec "exec xrandr --output DP-0 --off --output DP-1 --off --output HDMI-0 --mode 1920x1080 --pos 1920x0 --rotate right --output DP-2 --mode 1920x1080 --pos 0x420 --rotate normal && ~/.config/polybar/forest/launch_multi_monitors.sh", mode "default"
-	bindsym 3 exec "xrandr --output DP-0 --primary --mode 1920x1080 --pos 0x467 --rotate normal --output DP-1 --off --output HDMI-0 --mode 1920x1080 --pos 1920x0 --rotate right --output DP-2 --mode 1920x1080 --pos 3000x1547 --rotate normal && ~/.config/polybar/forest/launch_3_monitors.sh", mode "default"
+	bindsym 2 exec "xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x359 --rotate normal --output DP-1-0 --off --output DP-1-1 --off --output HDMI-1-0 --mode 1920x1080 --pos 1920x0 --rotate right && ~/.config/polybar/forest/launch_2_monitors.sh && feh ~/Projetos/personal_projects/Helpers/wallpaper.jpeg --bg-fill", mode "default"
+	bindsym 3 exec "xrandr --output DP-0 --mode 1920x1080 --pos 0x420 --rotate normal --output DP-1 --off --output HDMI-0 --mode 1920x1080 --pos 1920x0 --rotate right --output DP-2 --mode 1920x1080 --pos 3000x1174 --rotate normal && ~/.config/polybar/forest/launch_3_monitors.sh && feh ~/Projetos/personal_projects/Helpers/wallpaper.jpeg --bg-fill", mode "default"
 
         bindsym Escape mode "default"
 }
@@ -234,13 +235,17 @@ mode "monitors" {
 
 # Abrir automaticamente
 # exec --no-startup-id volumeicon
-exec xrandr --output DP-0 --off --output DP-1 --off --output HDMI-0 --mode 1920x1080 --pos 1920x0 --rotate right --output DP-2 --mode 1920x1080 --pos 0x420 --rotate normal
-exec_always --no-startup-id ~/.config/polybar/forest/launch_multi_monitors.sh
+# exec xrandr --output DP-0 --off --output DP-1 --off --output HDMI-0 --mode 1920x1080 --pos 1920x0 --rotate right --output DP-2 --mode 1920x1080 --pos 0x420 --rotate normal
+exec xrandr --output DP-0 --mode 1920x1080 --pos 0x420 --rotate normal --output DP-1 --off --output HDMI-0 --mode 1920x1080 --pos 1920x0 --rotate right --output DP-2 --mode 1920x1080 --pos 3000x1174 --rotate normal && ~/.config/polybar/forest/launch_3_monitors.sh && feh ~/Projetos/personal_projects/Helpers/wallpaper.jpeg --bg-fill
+# exec_always --no-startup-id ~/.config/polybar/forest/launch_multi_monitors.sh
+exec_always --no-startup-id ~/.config/polybar/forest/launch_3_monitors.sh
 exec_always --no-startup-id "compton -b"
 exec_always --no-startup-id "feh --bg-fill ~/Projetos/personal_projects/Helpers/wallpaper.jpeg"
 
 # Estilos de janelas
 for_window [Class="Code"] border normal
+for_window [title="^Calendar$"] floating enable
+for_window [title="^Calculator$"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -292,13 +297,14 @@ mode "$music_player" {
 
 # #helper mode
 bindsym $mod+Ctrl+Shift+h mode "$helpers"
-set $helpers (1)cpf, (2)cnpj, (3)ip, (4) uuid, (9)wallpaper
+set $helpers (1)cpf, (2)cnpj, (3)ip, (4) uuid, (5) battery, (9)wallpaper
 mode "$helpers" {
         bindsym 1 exec "~/Projetos/personal_projects/Helpers/cpf.sh | xclip -r -selection clipboard", exec notify-send "cpf", mode "default"
         bindsym 2 exec "node ~/Projetos/personal_projects/Helpers/teste.js | xclip -selection clipboard", exec notify-send "cnpj", mode "default"
+        bindsym 3 exec --no-startup-id "curl ipinfo.io/ip | xclip -r -selection clipboard", exec notify-send "ip copiado", mode "default"
+        bindsym 4 exec "uuidgen | xclip -r -selection clipboard", exec notify-send "uuid copiado", mode "default"
+	bindsym 5 exec "~/Projetos/personal_projects/Helpers/battery.sh", mode "default"
         bindsym 7 exec "~/Projetos/personal_projects/Helpers/wallpaper", notify-send "teste", mode "default"
-	bindsym 4 exec "uuidgen | xclip -r -selection clipboard", exec notify-send "uuid copiado", mode "default"
-        bindsym 3 exec --no-startup-id "curl ifconfig.me | xclip -r -selection clipboard", exec notify-send "ip copiado", mode "default"
         bindsym 9 exec --no-startup-id wallpaper, mode "default"
 
         # exit system mode: "Enter" or "Escape"

@@ -123,23 +123,15 @@
       "  Get$1State,",
       "  use$1Dispatch,",
       "  use$1State,",
-      "}",
+      "}"
     ]
   },
   "New Styled Element": {
     "prefix": "styl",
-    "body": [
-      "$1: styled('div')`",
-      "  $2",
-      "`,",
-    ]
+    "body": ["$1: styled('div')`", "  $2", "`,"]
   },
   "Css Media": {
     "prefix": "@m",
-    "body": [
-      "@media (max-width: $1px) {",
-      "  $2",
-      "}"
-    ]
+    "body": ["@media (max-width: $1px) {", "  $2", "}"]
   }
 }

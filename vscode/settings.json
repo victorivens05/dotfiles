@@ -1,6 +1,6 @@
 {
   "editor.codeLens": false,
-	"editor.renderWhitespace": "all",
+  "editor.renderWhitespace": "all",
   "editor.stablePeek": true,
   "editor.minimap.enabled": false,
   "editor.tabSize": 2,
@@ -22,10 +22,7 @@
   "vim.camelCaseMotion.enable": true,
   "editor.suggest.localityBonus": true,
   "macros": {
-    "evenWidthAndOpenFilesEditor": [
-      "workbench.action.evenEditorWidths",
-      "revealInExplorer"
-    ]
+    "evenWidthAndOpenFilesEditor": ["workbench.action.evenEditorWidths", "revealInExplorer"]
   },
   "typescript.updateImportsOnFileMove.enabled": "always",
   "vim.highlightedyank.enable": true,
@@ -39,14 +36,8 @@
   },
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": [
-        "<Space>"
-      ],
-      "after": [
-        "<Leader>",
-        "<Leader>",
-        "s"
-      ]
+      "before": ["<Space>"],
+      "after": ["<Leader>", "<Leader>", "s"]
     },
     // {
     //   "before": [
@@ -69,116 +60,52 @@
     //   ]
     // },
     {
-      "before": [
-        "*"
-      ],
-      "after": [
-        "*",
-        "z",
-        "z"
-      ]
+      "before": ["*"],
+      "after": ["*", "z", "z"]
     },
     {
-      "before": [
-        "#"
-      ],
-      "after": [
-        "#",
-        "z",
-        "z"
-      ]
+      "before": ["#"],
+      "after": ["#", "z", "z"]
     },
     {
-      "before": [
-        ">"
-      ],
-      "commands": [
-        "editor.action.indentLines"
-      ]
+      "before": [">"],
+      "commands": ["editor.action.indentLines"]
     },
     {
-      "before": [
-        "<"
-      ],
-      "commands": [
-        "editor.action.outdentLines"
-      ]
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
     },
     {
-      "before": [
-        "g",
-        "D"
-      ],
-      "commands": [
-        "editor.action.goToReferences"
-      ]
+      "before": ["g", "D"],
+      "commands": ["editor.action.goToReferences"]
     }
   ],
   "vim.insertModeKeyBindings": [
     {
-      "before": [
-        "j",
-        "j"
-      ],
-      "after": [
-        "<Esc>"
-      ]
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
     },
     {
-      "before": [
-        "<C-h>"
-      ],
-      "commands": [
-        "cursorLeft"
-      ]
+      "before": ["<C-h>"],
+      "commands": ["cursorLeft"]
     },
     {
-      "before": [
-        "<C-l>"
-      ],
-      "commands": [
-        "cursorRight"
-      ]
+      "before": ["<C-l>"],
+      "commands": ["cursorRight"]
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
     {
-      "before": [
-        ">"
-      ],
-      "commands": [
-        "editor.action.indentLines"
-      ]
+      "before": [">"],
+      "commands": ["editor.action.indentLines"]
     },
     {
-      "before": [
-        "<"
-      ],
-      "commands": [
-        "editor.action.outdentLines"
-      ]
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
     },
     {
-      "before": [
-        "<Leader>",
-        "w"
-      ],
-      "after": [
-        "S",
-        "<Enter>",
-        "V",
-        ":",
-        "s",
-        "/",
-        ",",
-        "/",
-        ",",
-        "\\",
-        "r",
-        "/",
-        "g",
-        "<Enter>"
-      ]
+      "before": ["<Leader>", "w"],
+      "after": ["S", "<Enter>", "V", ":", "s", "/", ",", "/", ",", "\\", "r", "/", "g", "<Enter>"]
     }
   ],
   "workbench.tree.renderIndentGuides": "always",
@@ -186,9 +113,7 @@
   "editor.fontWeight": "600",
   "editor.letterSpacing": 0.2,
   "editor.fontLigatures": true,
-  "editor.rulers": [
-    100
-  ],
+  "editor.rulers": [100],
   "workbench.colorCustomizations": {
     "[Night Owl]": {
       "gitDecoration.modifiedResourceForeground": "#ffcb8b",
@@ -200,24 +125,22 @@
       "editorLineNumber.foreground": "#ffd700",
       "editorLineNumber.activeForeground": "#f78c6c",
       "editor.lineHighlightBackground": "#000C1D",
-      "editorCursor.foreground": "#ccff33",
+      "editorCursor.foreground": "#ccff33"
     }
   },
   "editor.renderLineHighlight": "all",
   "git.autofetch": true,
   "bracket-pair-colorizer-2.showBracketsInGutter": true,
-  "bracket-pair-colorizer-2.colors": [
-    "Gold",
-    "Orchid",
-    "LightSkyBlue"
-  ],
+  "bracket-pair-colorizer-2.colors": ["Gold", "Orchid", "LightSkyBlue"],
   "bracket-pair-colorizer-2.showBracketsInRuler": true,
   "highlight.regexes": {
-    "(<(\\/|))(Styles)(\\.)": { // A regex will be created from this string, don't forget to double escape it
+    "(<(\\/|))(Styles)(\\.)": {
+      // A regex will be created from this string, don't forget to double escape it
       "regexFlags": "g", // Flags used when building this regex
       // "filterLanguageRegex": "tsx", // Apply only if current file's language matches this regex. Requires double escaping
       "filterFileRegex": ".*\\.tsx", // Apply only if the current file's path matches this regex. Requires double escaping
-      "decorations": [ // Decoration options to apply to the capturing groups
+      "decorations": [
+        // Decoration options to apply to the capturing groups
         {}, // Decoration options to apply to the first capturing group, in this case "//TODO"
         {
           "color": "#c792ea",
@@ -273,5 +196,5 @@
     "opacity: 0.5"
   ],
   "toggle.settingTitle": "editor.codeLens",
-  "tabnine.experimentalAutoImports": true,
+  "tabnine.experimentalAutoImports": true
 }
